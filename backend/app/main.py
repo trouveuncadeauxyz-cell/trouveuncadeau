@@ -12,6 +12,8 @@ import os
 import logging
 from typing import List, Dict, Any
 from datetime import datetime
+from app.core.rate_limiter import rate_limit
+from app.core.cache import cache_response
 
 # Configuration du logging
 logging.basicConfig(
@@ -85,6 +87,7 @@ async def root():
         }
     }
 
+@rate_limit(max_requests=200, window_seconds=60)
 @app.get("/health", tags=["Health"])
 async def health():
     """Vérifier la santé du service"""
@@ -94,6 +97,7 @@ async def health():
         "version": "1.0.0"
     }
 
+@rate_limit(max_requests=200, window_seconds=60)
 @app.get("/api/health", tags=["Health"])
 async def api_health():
     """Vérifier la santé complète du service"""
@@ -120,6 +124,8 @@ async def api_health():
 
 # ============ ENDPOINTS API ============
 
+@rate_limit(max_requests=60, window_seconds=60)
+@cache_response(ttl_seconds=1800)  # 30 minutes
 @app.get("/api/products", tags=["Products"])
 async def get_products(
     limit: int = 100,
@@ -148,6 +154,8 @@ async def get_products(
         logger.error(f"❌ Error fetching products: {str(e)}")
         raise HTTPException(status_code=500, detail=str(e))
 
+        @rate_limit(max_requests=30, window_seconds=60)
+@cache_response(ttl_seconds=900)  # 15 minutes
 @app.post("/api/recommendations", tags=["Recommendations"])
 async def get_recommendations(
     budget: float = 50.0,
@@ -194,6 +202,8 @@ async def get_recommendations(
         Nombre de recommandations: {count}
 
         # Search endpoint avec optimisations
+        @rate_limit(max_requests=60, window_seconds=60)
+@cache_response(ttl_seconds=600)  # 10 minutes
 @app.get("/api/search", response_model=ProductsResponse)
 async def search_products(
     query: str,
@@ -257,6 +267,8 @@ async def search_products(
         raise HTTPException(status_code=500, detail=str(e))
 
 
+@rate_limit(max_requests=60, window_seconds=60)
+@cache_response(ttl_seconds=600)  # 10 minutes
 @app.get("/api/search/suggestions", response_model=Dict[str, Any])
 async def get_search_suggestions(
     query: str,
@@ -283,6 +295,8 @@ async def get_search_suggestions(
         raise HTTPException(status_code=500, detail=str(e))
 
 
+@rate_limit(max_requests=60, window_seconds=60)
+@cache_response(ttl_seconds=1800)  # 30 minutes
     @app.get("/api/products/categories", response_model=Dict[str, Any])
 async def get_product_categories(
     skip: int = 0,
@@ -321,6 +335,8 @@ async def get_product_categories(
         logger.error(f"Categories error: {str(e)}")
         raise HTTPException(status_code=500, detail=str(e))
 
+@rate_limit(max_requests=30, window_seconds=60)
+@cache_response(ttl_seconds=900)  # 15 minutes
         @app.get("/api/recommendations/quick", response_model=Dict[str, Any])
 async def get_quick_recommendations(
     query: str = "cadeau",
