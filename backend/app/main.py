@@ -192,6 +192,50 @@ async def get_recommendations(
         Occasion: {occasion}
         Intérêts: {interests}
         Nombre de recommandations: {count}
+
+        # Search endpoint avec optimisations
+@app.get("/api/search", response_model=ProductsResponse)
+async def search_products(
+    query: str,
+    skip: int = 0,
+    limit: int = 20,
+    price_min: Optional[float] = None,
+    price_max: Optional[float] = None
+):
+    """Search products with advanced filtering."""
+    try:
+        # Validate pagination
+        skip, limit = validate_pagination(skip, limit)
+        
+        # Fetch all products from Airtable
+        products = await airtable_service.fetch_products()
+        
+        # Apply search and filters
+        from app.services.search_engine import get_search_engine
+        search_engine = get_search_engine()
+        
+        filters = {
+            'price_min': price_min,
+            'price_max': price_max,
+            'search_fields': ['name', 'description', 'category']
+        }
+        
+        filtered = search_engine.combined_search(query, products, filters)
+        
+        # Paginate results
+        total = len(filtered)
+        items = filtered[skip:skip + limit]
+        
+        return ProductsResponse(
+            status="success",
+            total=total,
+            skip=skip,
+            limit=limit,
+            items=items
+        )
+    except Exception as e:
+        logger.error(f"Search error: {str(e)}")
+        raise HTTPException(status_code=500, detail=str(e))
         """
         
         # Générer les recommandations avec LangChain
