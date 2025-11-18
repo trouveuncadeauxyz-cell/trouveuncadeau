@@ -256,6 +256,117 @@ async def search_products(
         logger.error(f"❌ Error generating recommendations: {str(e)}")
         raise HTTPException(status_code=500, detail=str(e))
 
+
+@app.get("/api/search/suggestions", response_model=Dict[str, Any])
+async def get_search_suggestions(
+    query: str,
+    limit: int = 5
+) -> Dict[str, Any]:
+    """Get search suggestions for auto-complete."""
+    try:
+        # Fetch all products from Airtable
+        products = await airtable_service.fetch_products()
+        
+        # Apply search suggestions
+        from app.services.search_engine import get_search_engine
+        search_engine = get_search_engine()
+        suggestions = search_engine.suggest(query, products, limit=limit)
+        
+        return {
+            "status": "success",
+            "query": query,
+            "suggestions": suggestions
+        }
+    
+    except Exception as e:
+        logger.error(f"Search suggestions error: {str(e)}")
+        raise HTTPException(status_code=500, detail=str(e))
+
+
+    @app.get("/api/products/categories", response_model=Dict[str, Any])
+async def get_product_categories(
+    skip: int = 0,
+    limit: int = 50
+) -> Dict[str, Any]:
+    """Get all available product categories."""
+    try:
+        # Validate pagination
+        from app.core.validators import validate_pagination
+        skip, limit = validate_pagination(skip, limit)
+        
+        # Fetch all products from Airtable
+        products = await airtable_service.fetch_products()
+        
+        # Extract unique categories
+        categories = set()
+        for product in products:
+            if 'category' in product:
+                categories.add(product['category'])
+        
+        categories_list = sorted(list(categories))
+        
+        # Paginate results
+        total = len(categories_list)
+        items = categories_list[skip:skip + limit]
+        
+        return {
+            "status": "success",
+            "total": total,
+            "skip": skip,
+            "limit": limit,
+            "categories": items
+        }
+    
+    except Exception as e:
+        logger.error(f"Categories error: {str(e)}")
+        raise HTTPException(status_code=500, detail=str(e))
+
+        @app.get("/api/recommendations/quick", response_model=Dict[str, Any])
+async def get_quick_recommendations(
+    query: str = "cadeau",
+    count: int = 5
+) -> Dict[str, Any]:
+    """Get quick gift recommendations with default parameters."""
+    try:
+        # Validate count
+        if count < 1 or count > 20:
+            count = 5
+        
+        # Fetch products from Airtable with budget constraint
+        products = await airtable_service.fetch_products()
+        
+        # Filter products within reasonable budget (default: 0-200)
+        products_in_budget = [
+            p for p in products
+            if p.get('price', 0) <= 200
+        ]
+        
+        # Create simple user input
+        user_input = {
+            "interests": [query],
+            "age_group": "adulte",
+            "budget": {"min": 0, "max": 200},
+            "occasion": "général"
+        }
+        
+        # Generate recommendations with LangChain
+        recommendations = await recommendation_engine.generate_recommendations(
+            user_input=user_input,
+            products=products_in_budget,
+            count=count
+        )
+        
+        logger.info(f"✅ Generated {len(recommendations)} quick recommendations")
+        
+        return {
+            "status": "success",
+            "count": len(recommendations),
+            "recommendations": recommendations
+        }
+    
+    except Exception as e:
+        logger.error(f"❌ Quick recommendations error: {str(e)}")
+        raise HTTPException(status_code=500, detail=str(e))
 # ============ DEMARRAGE ============
 
 if __name__ == "__main__":
