@@ -1,0 +1,433 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Politique de Confidentialité | TrouveUnCadeau.xyz</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
+            min-height: 100vh;
+            color: #e4e4e7;
+            line-height: 1.7;
+        }
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+        .back-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            color: #00D9FF;
+            text-decoration: none;
+            margin-bottom: 30px;
+            font-size: 14px;
+            transition: opacity 0.2s;
+        }
+        .back-link:hover {
+            opacity: 0.8;
+        }
+        .page-header {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+        .page-header h1 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: #ffffff;
+            margin-bottom: 10px;
+        }
+        .page-header .subtitle {
+            color: #a1a1aa;
+            font-size: 1rem;
+        }
+        .card {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 16px;
+            padding: 30px;
+            margin-bottom: 24px;
+            backdrop-filter: blur(10px);
+        }
+        .card-header {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 20px;
+            padding-bottom: 15px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        .card-icon {
+            font-size: 1.5rem;
+        }
+        .card-title {
+            font-size: 1.3rem;
+            font-weight: 600;
+            color: #ffffff;
+        }
+        .card p {
+            color: #d4d4d8;
+            margin-bottom: 15px;
+        }
+        .card h4 {
+            color: #ffffff;
+            margin: 20px 0 10px 0;
+            font-size: 1rem;
+        }
+        .data-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+        .data-table th,
+        .data-table td {
+            padding: 14px 16px;
+            text-align: left;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        .data-table th {
+            background: rgba(255, 255, 255, 0.05);
+            font-weight: 600;
+            color: #ffffff;
+            font-size: 0.9rem;
+        }
+        .data-table td {
+            color: #d4d4d8;
+        }
+        .data-table tr:hover {
+            background: rgba(255, 255, 255, 0.03);
+        }
+        .cookie-card {
+            background: linear-gradient(135deg, rgba(0, 217, 255, 0.1) 0%, rgba(0, 217, 255, 0.05) 100%);
+            border-left: 4px solid #00D9FF;
+            border-radius: 0 12px 12px 0;
+            padding: 16px 20px;
+            margin: 12px 0;
+        }
+        .cookie-card strong {
+            color: #ffffff;
+        }
+        .cookie-card span {
+            color: #a1a1aa;
+            font-size: 0.9rem;
+        }
+        .casl-warning {
+            background: linear-gradient(135deg, rgba(255, 193, 7, 0.15) 0%, rgba(255, 193, 7, 0.05) 100%);
+            border-left: 4px solid #ffc107;
+            border-radius: 0 12px 12px 0;
+            padding: 16px 20px;
+            margin: 20px 0;
+        }
+        .casl-warning strong {
+            color: #ffc107;
+        }
+        .rights-list {
+            list-style: none;
+            padding: 0;
+        }
+        .rights-list li {
+            padding: 12px 0 12px 35px;
+            position: relative;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+            color: #d4d4d8;
+        }
+        .rights-list li:before {
+            content: "→";
+            position: absolute;
+            left: 8px;
+            color: #00D9FF;
+            font-weight: bold;
+        }
+        .rights-list li:last-child {
+            border-bottom: none;
+        }
+        .rights-list li strong {
+            color: #ffffff;
+        }
+        .contact-box {
+            background: rgba(0, 217, 255, 0.1);
+            border-radius: 12px;
+            padding: 20px;
+            text-align: center;
+            margin-top: 20px;
+        }
+        .contact-box a {
+            color: #00D9FF;
+            text-decoration: none;
+        }
+        .contact-box a:hover {
+            text-decoration: underline;
+        }
+        .authority-link {
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 8px;
+            padding: 12px;
+            margin-top: 15px;
+            font-size: 0.9rem;
+        }
+        .authority-link a {
+            color: #00D9FF;
+        }
+        .footer {
+            text-align: center;
+            padding: 40px 20px;
+            margin-top: 40px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        .footer-links {
+            margin-bottom: 15px;
+        }
+        .footer-links a {
+            color: #a1a1aa;
+            text-decoration: none;
+            margin: 0 15px;
+            font-size: 14px;
+            transition: color 0.2s;
+        }
+        .footer-links a:hover {
+            color: #00D9FF;
+        }
+        .footer-copy {
+            color: #71717a;
+            font-size: 13px;
+        }
+        @media (max-width: 768px) {
+            .page-header h1 {
+                font-size: 1.8rem;
+            }
+            .card {
+                padding: 20px;
+            }
+            .data-table {
+                font-size: 14px;
+            }
+            .data-table th,
+            .data-table td {
+                padding: 10px 8px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <a href="/" class="back-link">← Retour à l'accueil</a>
+        
+        <div class="page-header">
+            <h1>🔒 Politique de Confidentialité</h1>
+            <p class="subtitle">Dernière mise à jour: Décembre 2024</p>
+        </div>
+
+        <!-- Introduction -->
+        <div class="card">
+            <div class="card-header">
+                <span class="card-icon">📌</span>
+                <h2 class="card-title">Introduction</h2>
+            </div>
+            <p>
+                <strong>TrouveUnCadeau.xyz</strong> s'engage à protéger la vie privée de ses utilisateurs. 
+                Cette politique explique comment nous collectons, utilisons et protégeons vos informations 
+                conformément à la <strong>Loi sur la protection des renseignements personnels et les documents 
+                électroniques (PIPEDA)</strong> et au <strong>Règlement général sur la protection des données (RGPD)</strong> 
+                pour nos visiteurs européens.
+            </p>
+        </div>
+
+        <!-- Informations Collectées -->
+        <div class="card">
+            <div class="card-header">
+                <span class="card-icon">📊</span>
+                <h2 class="card-title">Informations Collectées</h2>
+            </div>
+            
+            <h4>Données collectées automatiquement</h4>
+            <table class="data-table">
+                <thead>
+                    <tr>
+                        <th>Type de donnée</th>
+                        <th>Finalité</th>
+                        <th>Rétention</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Adresse IP (anonymisée)</td>
+                        <td>Sécurité et analyse de trafic</td>
+                        <td>30 jours</td>
+                    </tr>
+                    <tr>
+                        <td>Type de navigateur/appareil</td>
+                        <td>Optimisation de l'expérience</td>
+                        <td>30 jours</td>
+                    </tr>
+                    <tr>
+                        <td>Pages visitées</td>
+                        <td>Amélioration du service</td>
+                        <td>90 jours</td>
+                    </tr>
+                    <tr>
+                        <td>Source de référence</td>
+                        <td>Analyse marketing</td>
+                        <td>90 jours</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <h4>Données que vous fournissez</h4>
+            <table class="data-table">
+                <thead>
+                    <tr>
+                        <th>Type de donnée</th>
+                        <th>Finalité</th>
+                        <th>Base légale</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Préférences de recherche</td>
+                        <td>Recommandations personnalisées</td>
+                        <td>Intérêt légitime</td>
+                    </tr>
+                    <tr>
+                        <td>Adresse email (newsletter)</td>
+                        <td>Communications commerciales</td>
+                        <td>Consentement exprès</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <!-- Cookies -->
+        <div class="card">
+            <div class="card-header">
+                <span class="card-icon">🍪</span>
+                <h2 class="card-title">Cookies et Technologies Similaires</h2>
+            </div>
+            <p>Nous utilisons différents types de cookies:</p>
+            
+            <div class="cookie-card">
+                <strong>🔧 Cookies essentiels</strong><br>
+                <span>Nécessaires au fonctionnement du site. Ne peuvent pas être désactivés.</span>
+            </div>
+            
+            <div class="cookie-card">
+                <strong>🛒 Cookies d'affiliation</strong><br>
+                <span>Permettent le suivi des achats via nos liens partenaires (Amazon: 24h, Etsy: 30 jours, etc.)</span>
+            </div>
+            
+            <div class="cookie-card">
+                <strong>📈 Cookies analytiques</strong><br>
+                <span>Nous aident à comprendre l'utilisation du site (données anonymisées).</span>
+            </div>
+            
+            <p style="margin-top: 20px;">
+                <strong>Gestion des cookies:</strong> Vous pouvez configurer votre navigateur pour bloquer ou supprimer 
+                les cookies. Notez que cela peut affecter certaines fonctionnalités du site.
+            </p>
+        </div>
+
+        <!-- Protection des Données -->
+        <div class="card">
+            <div class="card-header">
+                <span class="card-icon">🔐</span>
+                <h2 class="card-title">Protection des Données</h2>
+            </div>
+            <p>Nous mettons en œuvre des mesures techniques et organisationnelles appropriées:</p>
+            <ul class="rights-list">
+                <li><strong>Connexion HTTPS sécurisée</strong> — Toutes les communications sont chiffrées</li>
+                <li><strong>Aucune vente de données</strong> — Vos informations ne sont jamais vendues à des tiers</li>
+                <li><strong>Conservation minimale</strong> — Nous ne conservons que les données nécessaires</li>
+                <li><strong>Accès restreint</strong> — Seul le personnel autorisé a accès aux données</li>
+                <li><strong>Mise à jour régulière</strong> — Nos systèmes de sécurité sont constamment mis à jour</li>
+            </ul>
+        </div>
+
+        <!-- CASL -->
+        <div class="card">
+            <div class="card-header">
+                <span class="card-icon">📧</span>
+                <h2 class="card-title">Communications Électroniques (CASL)</h2>
+            </div>
+            
+            <div class="casl-warning">
+                <strong>⚠️ Conformité CASL — Loi canadienne anti-pourriel</strong>
+            </div>
+            
+            <p>Si vous vous inscrivez à notre newsletter ou recevez des communications de notre part:</p>
+            <ul class="rights-list">
+                <li><strong>Consentement exprès requis</strong> — Vous devez activement accepter de recevoir nos communications</li>
+                <li><strong>Désabonnement facile</strong> — Chaque email contient un lien de désabonnement fonctionnel</li>
+                <li><strong>Traitement rapide</strong> — Les demandes de désabonnement sont traitées sous 10 jours ouvrables</li>
+                <li><strong>Identification claire</strong> — Nos emails identifient clairement l'expéditeur</li>
+                <li><strong>Confidentialité</strong> — Votre adresse email n'est jamais partagée avec des tiers</li>
+            </ul>
+            
+            <div class="contact-box" style="text-align: left;">
+                <p><strong>Identification de l'expéditeur:</strong></p>
+                <p>TrouveUnCadeau.xyz | Saguenay-Lac-Saint-Jean, Québec, Canada | contact@trouveuncadeau.xyz</p>
+            </div>
+        </div>
+
+        <!-- Vos Droits -->
+        <div class="card">
+            <div class="card-header">
+                <span class="card-icon">🌍</span>
+                <h2 class="card-title">Vos Droits</h2>
+            </div>
+            <p>Conformément à <strong>PIPEDA</strong> et au <strong>RGPD</strong> (si applicable), vous disposez des droits suivants:</p>
+            <ul class="rights-list">
+                <li><strong>Droit d'accès</strong> — Obtenir une copie de vos données personnelles</li>
+                <li><strong>Droit de rectification</strong> — Corriger des données inexactes ou incomplètes</li>
+                <li><strong>Droit à l'effacement</strong> — Demander la suppression de vos données</li>
+                <li><strong>Droit de retrait</strong> — Retirer votre consentement à tout moment</li>
+                <li><strong>Droit à la portabilité</strong> — Recevoir vos données dans un format structuré</li>
+                <li><strong>Droit d'opposition</strong> — Vous opposer au traitement de vos données</li>
+            </ul>
+            
+            <p style="margin-top: 20px;">
+                <strong>Pour exercer vos droits:</strong> Contactez-nous à 
+                <a href="mailto:contact@trouveuncadeau.xyz" style="color: #00D9FF;">contact@trouveuncadeau.xyz</a>. 
+                Nous répondrons dans un délai de 30 jours.
+            </p>
+            
+            <div class="authority-link">
+                <strong>Autorité de contrôle:</strong> Vous pouvez également porter plainte auprès du 
+                <a href="https://www.priv.gc.ca/fr/" target="_blank">Commissariat à la protection de la vie privée du Canada</a>.
+            </div>
+        </div>
+
+        <!-- Contact -->
+        <div class="card">
+            <div class="card-header">
+                <span class="card-icon">📬</span>
+                <h2 class="card-title">Contact</h2>
+            </div>
+            <p>Pour toute question relative à cette politique ou à vos données personnelles:</p>
+            <div class="contact-box">
+                <p><strong>Responsable du traitement:</strong> TrouveUnCadeau.xyz</p>
+                <p><strong>Email:</strong> <a href="mailto:contact@trouveuncadeau.xyz">contact@trouveuncadeau.xyz</a></p>
+                <p><strong>Adresse:</strong> Saguenay-Lac-Saint-Jean, Québec, Canada</p>
+            </div>
+        </div>
+
+        <!-- Footer -->
+        <div class="footer">
+            <div class="footer-links">
+                <a href="/divulgation.html">📋 Divulgation</a>
+                <a href="/confidentialite.html">🔒 Confidentialité</a>
+                <a href="/conditions.html">📜 Conditions</a>
+                <a href="mailto:contact@trouveuncadeau.xyz">📬 Contact</a>
+            </div>
+            <p class="footer-copy">© 2024 TrouveUnCadeau.xyz | Saguenay-Lac-Saint-Jean, Québec, Canada</p>
+        </div>
+    </div>
+</body>
+</html>

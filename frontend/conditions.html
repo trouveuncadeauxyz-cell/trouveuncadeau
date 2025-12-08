@@ -1,0 +1,423 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Conditions d'Utilisation | TrouveUnCadeau.xyz</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
+            min-height: 100vh;
+            color: #e4e4e7;
+            line-height: 1.7;
+        }
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+        .back-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            color: #00D9FF;
+            text-decoration: none;
+            margin-bottom: 30px;
+            font-size: 14px;
+            transition: opacity 0.2s;
+        }
+        .back-link:hover {
+            opacity: 0.8;
+        }
+        .page-header {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+        .page-header h1 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: #ffffff;
+            margin-bottom: 10px;
+        }
+        .page-header .subtitle {
+            color: #a1a1aa;
+            font-size: 1rem;
+        }
+        .warning-banner {
+            background: linear-gradient(135deg, rgba(255, 193, 7, 0.15) 0%, rgba(255, 193, 7, 0.05) 100%);
+            border-left: 4px solid #ffc107;
+            border-radius: 0 12px 12px 0;
+            padding: 20px;
+            margin-bottom: 30px;
+        }
+        .warning-banner strong {
+            color: #ffc107;
+        }
+        .warning-banner p {
+            color: #e4e4e7;
+            margin: 0;
+        }
+        .card {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 16px;
+            padding: 30px;
+            margin-bottom: 24px;
+            backdrop-filter: blur(10px);
+        }
+        .card-header {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 20px;
+        }
+        .section-number {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 36px;
+            height: 36px;
+            background: linear-gradient(135deg, #00D9FF 0%, #0099cc 100%);
+            border-radius: 50%;
+            font-weight: 700;
+            font-size: 1rem;
+            color: #000;
+        }
+        .card-title {
+            font-size: 1.3rem;
+            font-weight: 600;
+            color: #ffffff;
+        }
+        .card p {
+            color: #d4d4d8;
+            margin-bottom: 15px;
+        }
+        .info-box {
+            background: linear-gradient(135deg, rgba(0, 217, 255, 0.1) 0%, rgba(0, 217, 255, 0.05) 100%);
+            border-left: 4px solid #00D9FF;
+            border-radius: 0 12px 12px 0;
+            padding: 20px;
+            margin: 20px 0;
+        }
+        .info-box strong {
+            color: #00D9FF;
+        }
+        .terms-list {
+            list-style: none;
+            padding: 0;
+            margin: 15px 0;
+        }
+        .terms-list li {
+            padding: 10px 0 10px 30px;
+            position: relative;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+            color: #d4d4d8;
+        }
+        .terms-list li:before {
+            content: "•";
+            position: absolute;
+            left: 10px;
+            color: #00D9FF;
+            font-size: 1.2rem;
+        }
+        .terms-list li:last-child {
+            border-bottom: none;
+        }
+        .terms-list li strong {
+            color: #ffffff;
+        }
+        .terms-list li a {
+            color: #00D9FF;
+            text-decoration: none;
+        }
+        .terms-list li a:hover {
+            text-decoration: underline;
+        }
+        .danger-box {
+            background: linear-gradient(135deg, rgba(239, 68, 68, 0.15) 0%, rgba(239, 68, 68, 0.05) 100%);
+            border-left: 4px solid #ef4444;
+            border-radius: 0 12px 12px 0;
+            padding: 16px 20px;
+            margin: 20px 0;
+        }
+        .danger-box strong {
+            color: #ef4444;
+        }
+        .contact-box {
+            background: rgba(0, 217, 255, 0.1);
+            border-radius: 12px;
+            padding: 20px;
+            text-align: center;
+            margin-top: 20px;
+        }
+        .contact-box a {
+            color: #00D9FF;
+            text-decoration: none;
+        }
+        .contact-box a:hover {
+            text-decoration: underline;
+        }
+        .footer {
+            text-align: center;
+            padding: 40px 20px;
+            margin-top: 40px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        .footer-links {
+            margin-bottom: 15px;
+        }
+        .footer-links a {
+            color: #a1a1aa;
+            text-decoration: none;
+            margin: 0 15px;
+            font-size: 14px;
+            transition: color 0.2s;
+        }
+        .footer-links a:hover {
+            color: #00D9FF;
+        }
+        .footer-copy {
+            color: #71717a;
+            font-size: 13px;
+        }
+        @media (max-width: 768px) {
+            .page-header h1 {
+                font-size: 1.8rem;
+            }
+            .card {
+                padding: 20px;
+            }
+            .card-header {
+                flex-wrap: wrap;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <a href="/" class="back-link">← Retour à l'accueil</a>
+        
+        <div class="page-header">
+            <h1>📜 Conditions d'Utilisation</h1>
+            <p class="subtitle">Dernière mise à jour: Décembre 2024</p>
+        </div>
+
+        <!-- Warning Banner -->
+        <div class="warning-banner">
+            <p><strong>⚠️ Important:</strong> En utilisant TrouveUnCadeau.xyz, vous acceptez les présentes conditions 
+            d'utilisation. Si vous n'acceptez pas ces conditions, veuillez ne pas utiliser notre service.</p>
+        </div>
+
+        <!-- Section 1 -->
+        <div class="card">
+            <div class="card-header">
+                <span class="section-number">1</span>
+                <h2 class="card-title">Acceptation des Conditions</h2>
+            </div>
+            <p>
+                Les présentes conditions d'utilisation constituent un accord juridiquement contraignant entre vous 
+                (l'« Utilisateur ») et TrouveUnCadeau.xyz (le « Service »). L'accès ou l'utilisation du Service 
+                implique votre acceptation inconditionnelle de ces conditions.
+            </p>
+            <p>
+                Nous nous réservons le droit de modifier ces conditions à tout moment. Les modifications entrent 
+                en vigueur dès leur publication sur le site. Votre utilisation continue du Service après 
+                publication des modifications constitue votre acceptation des nouvelles conditions.
+            </p>
+        </div>
+
+        <!-- Section 2 -->
+        <div class="card">
+            <div class="card-header">
+                <span class="section-number">2</span>
+                <h2 class="card-title">Description du Service</h2>
+            </div>
+            <p>
+                TrouveUnCadeau.xyz est un service gratuit de recommandation de cadeaux utilisant l'intelligence 
+                artificielle. Notre service vous aide à trouver des idées de cadeaux personnalisées basées sur 
+                vos critères (destinataire, occasion, budget, préférences).
+            </p>
+            <div class="info-box">
+                <p><strong>📌 Nature du Service:</strong></p>
+                <ul class="terms-list">
+                    <li>Nous sommes un <strong>service de recommandation</strong>, pas un détaillant</li>
+                    <li>Les achats sont effectués directement auprès des <strong>détaillants partenaires</strong> (Amazon, Etsy, etc.)</li>
+                    <li>Les prix affichés sont <strong>indicatifs</strong> et peuvent varier</li>
+                    <li>La <strong>disponibilité des produits</strong> n'est pas garantie</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Section 3 -->
+        <div class="card">
+            <div class="card-header">
+                <span class="section-number">3</span>
+                <h2 class="card-title">Liens Affiliés et Revenus</h2>
+            </div>
+            <p>
+                Notre site contient des liens affiliés vers des détaillants tiers. Lorsque vous cliquez sur 
+                ces liens et effectuez un achat, nous pouvons recevoir une commission de la part du détaillant.
+            </p>
+            <ul class="terms-list">
+                <li>Les liens affiliés sont identifiés sur notre site</li>
+                <li>Ces commissions n'entraînent aucun coût supplémentaire pour vous</li>
+                <li>Elles n'influencent pas nos recommandations</li>
+                <li>Consultez notre <a href="/divulgation.html">Divulgation d'Affiliation</a> pour plus de détails</li>
+            </ul>
+        </div>
+
+        <!-- Section 4 -->
+        <div class="card">
+            <div class="card-header">
+                <span class="section-number">4</span>
+                <h2 class="card-title">Utilisation Acceptable</h2>
+            </div>
+            <p>En utilisant notre Service, vous vous engagez à:</p>
+            <ul class="terms-list">
+                <li>Fournir des informations exactes lors de vos recherches</li>
+                <li>Ne pas utiliser le Service à des fins illégales ou non autorisées</li>
+                <li>Ne pas tenter de contourner les mesures de sécurité du site</li>
+                <li>Ne pas utiliser de robots, scrapers ou autres moyens automatisés pour accéder au Service</li>
+                <li>Ne pas reproduire, dupliquer ou exploiter le contenu sans autorisation</li>
+            </ul>
+        </div>
+
+        <!-- Section 5 -->
+        <div class="card">
+            <div class="card-header">
+                <span class="section-number">5</span>
+                <h2 class="card-title">Limitation de Responsabilité</h2>
+            </div>
+            <p><strong>TrouveUnCadeau.xyz ne peut être tenu responsable de:</strong></p>
+            <ul class="terms-list">
+                <li>La qualité, la sécurité ou la légalité des produits recommandés</li>
+                <li>Les transactions effectuées avec les détaillants tiers</li>
+                <li>Les erreurs de prix, de disponibilité ou de description des produits</li>
+                <li>Les dommages directs, indirects, accessoires ou consécutifs liés à l'utilisation du Service</li>
+                <li>L'exactitude ou la pertinence des recommandations générées par l'IA</li>
+                <li>Les interruptions de service ou les erreurs techniques</li>
+            </ul>
+            <div class="danger-box">
+                <p><strong>⚠️ Avertissement:</strong> Le Service est fourni « tel quel » et « selon disponibilité », 
+                sans garantie d'aucune sorte, expresse ou implicite.</p>
+            </div>
+        </div>
+
+        <!-- Section 6 -->
+        <div class="card">
+            <div class="card-header">
+                <span class="section-number">6</span>
+                <h2 class="card-title">Propriété Intellectuelle</h2>
+            </div>
+            <p>
+                L'ensemble du contenu présent sur TrouveUnCadeau.xyz est protégé par les lois sur la propriété 
+                intellectuelle, incluant mais sans s'y limiter:
+            </p>
+            <ul class="terms-list">
+                <li>Le code source, les algorithmes et l'architecture du site</li>
+                <li>Les textes, graphiques, logos et icônes</li>
+                <li>Les recommandations générées par notre système d'IA</li>
+                <li>La mise en page et le design du site</li>
+            </ul>
+            <p>
+                Toute reproduction, distribution, modification ou utilisation non autorisée de ces éléments 
+                est strictement interdite et peut donner lieu à des poursuites judiciaires.
+            </p>
+        </div>
+
+        <!-- Section 7 -->
+        <div class="card">
+            <div class="card-header">
+                <span class="section-number">7</span>
+                <h2 class="card-title">Protection des Données</h2>
+            </div>
+            <p>
+                Votre utilisation du Service est également régie par notre 
+                <a href="/confidentialite.html" style="color: #00D9FF;">Politique de Confidentialité</a>, qui décrit comment nous collectons, 
+                utilisons et protégeons vos informations personnelles.
+            </p>
+            <p>
+                En utilisant le Service, vous consentez à la collecte et au traitement de vos données 
+                conformément à cette politique.
+            </p>
+        </div>
+
+        <!-- Section 8 -->
+        <div class="card">
+            <div class="card-header">
+                <span class="section-number">8</span>
+                <h2 class="card-title">Indemnisation</h2>
+            </div>
+            <p>
+                Vous acceptez d'indemniser, de défendre et de dégager de toute responsabilité TrouveUnCadeau.xyz, 
+                ses dirigeants, employés et partenaires contre toute réclamation, perte, dommage ou dépense 
+                (y compris les frais juridiques raisonnables) découlant de:
+            </p>
+            <ul class="terms-list">
+                <li>Votre utilisation du Service</li>
+                <li>Votre violation des présentes conditions</li>
+                <li>Votre violation des droits de tiers</li>
+            </ul>
+        </div>
+
+        <!-- Section 9 -->
+        <div class="card">
+            <div class="card-header">
+                <span class="section-number">9</span>
+                <h2 class="card-title">Droit Applicable et Juridiction</h2>
+            </div>
+            <p>
+                Les présentes conditions sont régies par les lois de la <strong>province de Québec</strong> 
+                et les lois fédérales du Canada applicables.
+            </p>
+            <p>
+                Tout litige découlant de ces conditions ou de l'utilisation du Service sera soumis à la 
+                compétence exclusive des tribunaux de la province de Québec, district de Chicoutimi.
+            </p>
+        </div>
+
+        <!-- Section 10 -->
+        <div class="card">
+            <div class="card-header">
+                <span class="section-number">10</span>
+                <h2 class="card-title">Divisibilité</h2>
+            </div>
+            <p>
+                Si une disposition des présentes conditions est jugée invalide ou inapplicable par un tribunal 
+                compétent, les autres dispositions resteront pleinement en vigueur et de plein effet.
+            </p>
+        </div>
+
+        <!-- Section 11 -->
+        <div class="card">
+            <div class="card-header">
+                <span class="section-number">11</span>
+                <h2 class="card-title">Contact</h2>
+            </div>
+            <p>Pour toute question concernant ces conditions d'utilisation:</p>
+            <div class="contact-box">
+                <p><strong>Email:</strong> <a href="mailto:contact@trouveuncadeau.xyz">contact@trouveuncadeau.xyz</a></p>
+                <p><strong>Adresse:</strong> Saguenay-Lac-Saint-Jean, Québec, Canada</p>
+            </div>
+        </div>
+
+        <!-- Footer -->
+        <div class="footer">
+            <div class="footer-links">
+                <a href="/divulgation.html">📋 Divulgation</a>
+                <a href="/confidentialite.html">🔒 Confidentialité</a>
+                <a href="/conditions.html">📜 Conditions</a>
+                <a href="mailto:contact@trouveuncadeau.xyz">📬 Contact</a>
+            </div>
+            <p class="footer-copy">© 2024 TrouveUnCadeau.xyz | Saguenay-Lac-Saint-Jean, Québec, Canada</p>
+        </div>
+    </div>
+</body>
+</html>
