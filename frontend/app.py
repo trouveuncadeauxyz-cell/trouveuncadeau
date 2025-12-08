@@ -1,6 +1,6 @@
-"""Interface Streamlit pour TrouveUnCadeau.xyz
+﻿"""Interface Streamlit pour TrouveUnCadeau.xyz
 
-Moteur de recommandation de cadeaux intelligents pour Québec
+Moteur de recommandation de cadeaux intelligents pour QuÃ©bec
 Client frontal utilisant FastAPI backend
 """
 
@@ -10,15 +10,26 @@ import json
 from datetime import datetime
 import pandas as pd
 
+# === IMPORTS CONFORMITE ===
+from compliance_integration import (
+    inject_compliance_styles,
+    render_affiliate_banner,
+    render_footer_links,
+    render_sidebar_legal
+)
+
 # Configuration de la page
 st.set_page_config(
     page_title="TrouveUnCadeau - Moteur de recommandation",
-    page_icon="🎁",
+    page_icon="ðŸŽ",
     layout="wide",
     initial_sidebar_state="expanded"
 )
 
-# Style CSS personnalisé
+# === STYLES CONFORMITE ===
+inject_compliance_styles()
+
+# Style CSS personnalisÃ©
 st.markdown("""
 <style>
     body {
@@ -50,20 +61,23 @@ if 'recommendations' not in st.session_state:
 if 'products' not in st.session_state:
     st.session_state.products = None
 
-# En-tête principal
-st.title("🎁 TrouveUnCadeau.xyz")
-st.markdown("""
-### Moteur de recommandation de cadeaux intelligents pour Québec
+# En-tÃªte principal
+st.title("ðŸŽ TrouveUnCadeau.xyz")
 
-Trouvez le cadeau parfait grâce à l'IA! Décrivez votre budget, l'âge du destinataire,
-l'occasion, et ses intérêts pour obtenir des recommandations personnalisées.
+# === BANNER AFFILIATION ===
+render_affiliate_banner()
+st.markdown("""
+### Moteur de recommandation de cadeaux intelligents pour QuÃ©bec
+
+Trouvez le cadeau parfait grÃ¢ce Ã  l'IA! DÃ©crivez votre budget, l'Ã¢ge du destinataire,
+l'occasion, et ses intÃ©rÃªts pour obtenir des recommandations personnalisÃ©es.
 """)
 
 st.divider()
 
-# Barre latérale
+# Barre latÃ©rale
 with st.sidebar:
-    st.header("⚙️ Paramétrage")
+    st.header("âš™ï¸ ParamÃ©trage")
     st.markdown("---")
     
     budget = st.slider(
@@ -72,18 +86,18 @@ with st.sidebar:
         max_value=500.0,
         value=50.0,
         step=5.0,
-        help="Définissez votre budget maximal en dollars canadiens"
+        help="DÃ©finissez votre budget maximal en dollars canadiens"
     )
     
     recipient_age = st.number_input(
-        "Âge du destinataire",
+        "Ã‚ge du destinataire",
         min_value=1,
         max_value=120,
         value=25,
-        help="L'âge approximatif de la personne qui recevra le cadeau"
+        help="L'Ã¢ge approximatif de la personne qui recevra le cadeau"
     )
     
-    occasions = ["Anniversaire", "Noël", "Fête", "Remerciment", "Autre"]
+    occasions = ["Anniversaire", "NoÃ«l", "FÃªte", "Remerciment", "Autre"]
     occasion = st.selectbox(
         "Occasion",
         occasions,
@@ -100,30 +114,33 @@ with st.sidebar:
         help="Combien de suggestions voulez-vous?"
     )
 
+    # === LIENS LEGAUX SIDEBAR ===
+    render_sidebar_legal()
+
 # Formulaire principal
 col1, col2 = st.columns([3, 1])
 
 with col1:
     interests = st.text_area(
-        "💡 Intérêts et passions du destinataire",
+        "ðŸ’¡ IntÃ©rÃªts et passions du destinataire",
         placeholder="Ex: Musique, photographie, cuisine, sport, lecture, technologie, voyage...",
         height=100,
-        help="Décrivez les intérêts de la personne pour obtenir des recommandations plus pertinentes"
+        help="DÃ©crivez les intÃ©rÃªts de la personne pour obtenir des recommandations plus pertinentes"
     )
 
 with col2:
     st.markdown("<br>", unsafe_allow_html=True)
     generate_button = st.button(
-        "🌟 Générer\nrecommandations",
+        "ðŸŒŸ GÃ©nÃ©rer\nrecommandations",
         use_container_width=True
     )
 
 st.divider()
 
-# Section des résultats
+# Section des rÃ©sultats
 if generate_button or st.session_state.recommendations:
     if generate_button:
-        with st.spinner("🤖 TrouveUnCadeau analyse vos préférences..."):
+        with st.spinner("ðŸ¤– TrouveUnCadeau analyse vos prÃ©fÃ©rences..."):
             try:
                 response = requests.post(
                     f"{BACKEND_URL}/api/recommendations",
@@ -139,15 +156,15 @@ if generate_button or st.session_state.recommendations:
                 response.raise_for_status()
                 st.session_state.recommendations = response.json()
             except requests.exceptions.ConnectionError:
-                st.error("❌ Impossible de se connecter au service backend.\nAssurez-vous que le serveur FastAPI est lancé sur http://localhost:8000")
+                st.error("âŒ Impossible de se connecter au service backend.\nAssurez-vous que le serveur FastAPI est lancÃ© sur http://localhost:8000")
             except Exception as e:
-                st.error(f"❌ Erreur lors de la génération des recommandations: {str(e)}")
+                st.error(f"âŒ Erreur lors de la gÃ©nÃ©ration des recommandations: {str(e)}")
     
     if st.session_state.recommendations:
         data = st.session_state.recommendations
         
         if data.get('status') == 'success' and data.get('recommendations'):
-            st.success(f"✅ {data['count']} recommandation(s) générée(s) pour vous!")
+            st.success(f"âœ… {data['count']} recommandation(s) gÃ©nÃ©rÃ©e(s) pour vous!")
             
             recommendations = data.get('recommendations', [])
             
@@ -156,16 +173,16 @@ if generate_button or st.session_state.recommendations:
                     col1, col2 = st.columns([2, 1])
                     
                     with col1:
-                        st.subheader(f"🎉 Recommandation {idx}")
+                        st.subheader(f"ðŸŽ‰ Recommandation {idx}")
                         st.markdown(f"**Produit:** {rec.get('name', 'N/A')}")
                         st.markdown(f"**Description:** {rec.get('description', 'N/A')}")
                         st.markdown(f"**Prix:** {rec.get('price', 'N/A')}")
-                        st.markdown(f"**Catégorie:** {rec.get('category', 'N/A')}")
+                        st.markdown(f"**CatÃ©gorie:** {rec.get('category', 'N/A')}")
                     
                     with col2:
                         if rec.get('affiliate_url'):
                             st.markdown(
-                                f"[Voir sur Amazon 🛍️]({rec['affiliate_url']})",
+                                f"[Voir sur Amazon ðŸ›ï¸]({rec['affiliate_url']})",
                                 unsafe_allow_html=True
                             )
                         if rec.get('store_url'):
@@ -176,14 +193,14 @@ if generate_button or st.session_state.recommendations:
                     
                     st.markdown("---")
         elif data.get('status') == 'warning':
-            st.warning(f"⚠️ {data.get('message', 'Aucun résultat')}")
+            st.warning(f"âš ï¸ {data.get('message', 'Aucun rÃ©sultat')}")
         else:
-            st.error(f"❌ Erreur: {data.get('message', 'Erreur inconnue')}")
+            st.error(f"âŒ Erreur: {data.get('message', 'Erreur inconnue')}")
 
 # Section secondaire: Consulter les produits disponibles
 st.markdown("---")
-if st.checkbox("📄 Afficher tous les produits disponibles"):
-    with st.spinner("📅 Chargement des produits..."):
+if st.checkbox("ðŸ“„ Afficher tous les produits disponibles"):
+    with st.spinner("ðŸ“… Chargement des produits..."):
         try:
             response = requests.get(
                 f"{BACKEND_URL}/api/products",
@@ -194,20 +211,14 @@ if st.checkbox("📄 Afficher tous les produits disponibles"):
             data = response.json()
             
             if data.get('products'):
-                st.info(f"📑 {data['count']} produits disponibles dans notre base de données")
+                st.info(f"ðŸ“‘ {data['count']} produits disponibles dans notre base de donnÃ©es")
                 
                 products_df = pd.DataFrame(data['products'])
                 st.dataframe(products_df, use_container_width=True)
             else:
-                st.info("📄 Aucun produit disponible")
+                st.info("ðŸ“„ Aucun produit disponible")
         except Exception as e:
-            st.error(f"❌ Erreur de chargement: {str(e)}")
+            st.error(f"âŒ Erreur de chargement: {str(e)}")
 
-# Pied de page
-st.markdown("---")
-st.markdown("""
-<div style='text-align: center; color: #999; font-size: 0.9em;'>
-    <p>TrouveUnCadeau.xyz &copy; 2024 | Moteur IA de recommandation de cadeaux pour Québec</p>
-    <p>Alimenté par FastAPI, Streamlit, LangChain et Airtable</p>
-</div>
-""", unsafe_allow_html=True)
+# === FOOTER LEGAL CONFORMITE ===
+render_footer_links()
