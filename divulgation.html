@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Divulgation d'Affiliation | TrouveUnCadeau.xyz</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
+            min-height: 100vh;
+            color: #e4e4e7;
+            line-height: 1.7;
+        }
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+        .back-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            color: #00D9FF;
+            text-decoration: none;
+            margin-bottom: 30px;
+            font-size: 14px;
+            transition: opacity 0.2s;
+        }
+        .back-link:hover {
+            opacity: 0.8;
+        }
+        .page-header {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+        .page-header h1 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: #ffffff;
+            margin-bottom: 10px;
+        }
+        .page-header .subtitle {
+            color: #a1a1aa;
+            font-size: 1rem;
+        }
+        .card {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 16px;
+            padding: 30px;
+            margin-bottom: 24px;
+            backdrop-filter: blur(10px);
+        }
+        .card-header {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 20px;
+            padding-bottom: 15px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        .card-icon {
+            font-size: 1.5rem;
+        }
+        .card-title {
+            font-size: 1.3rem;
+            font-weight: 600;
+            color: #ffffff;
+        }
+        .card p {
+            color: #d4d4d8;
+            margin-bottom: 15px;
+        }
+        .highlight-box {
+            background: linear-gradient(135deg, rgba(0, 217, 255, 0.1) 0%, rgba(0, 217, 255, 0.05) 100%);
+            border-left: 4px solid #00D9FF;
+            border-radius: 0 12px 12px 0;
+            padding: 20px;
+            margin: 20px 0;
+        }
+        .highlight-box p {
+            margin: 0;
+            color: #e4e4e7;
+        }
+        .partners-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+        .partners-table th,
+        .partners-table td {
+            padding: 14px 16px;
+            text-align: left;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        .partners-table th {
+            background: rgba(255, 255, 255, 0.05);
+            font-weight: 600;
+            color: #ffffff;
+            font-size: 0.9rem;
+        }
+        .partners-table td {
+            color: #d4d4d8;
+        }
+        .partners-table tr:hover {
+            background: rgba(255, 255, 255, 0.03);
+        }
+        .policy-list {
+            list-style: none;
+            padding: 0;
+        }
+        .policy-list li {
+            padding: 12px 0 12px 35px;
+            position: relative;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+            color: #d4d4d8;
+        }
+        .policy-list li:before {
+            content: "✓";
+            position: absolute;
+            left: 8px;
+            color: #00D9FF;
+            font-weight: bold;
+        }
+        .policy-list li:last-child {
+            border-bottom: none;
+        }
+        .contact-box {
+            background: rgba(0, 217, 255, 0.1);
+            border-radius: 12px;
+            padding: 20px;
+            text-align: center;
+            margin-top: 30px;
+        }
+        .contact-box a {
+            color: #00D9FF;
+            text-decoration: none;
+        }
+        .contact-box a:hover {
+            text-decoration: underline;
+        }
+        .footer {
+            text-align: center;
+            padding: 40px 20px;
+            margin-top: 40px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        .footer-links {
+            margin-bottom: 15px;
+        }
+        .footer-links a {
+            color: #a1a1aa;
+            text-decoration: none;
+            margin: 0 15px;
+            font-size: 14px;
+            transition: color 0.2s;
+        }
+        .footer-links a:hover {
+            color: #00D9FF;
+        }
+        .footer-copy {
+            color: #71717a;
+            font-size: 13px;
+        }
+        @media (max-width: 768px) {
+            .page-header h1 {
+                font-size: 1.8rem;
+            }
+            .card {
+                padding: 20px;
+            }
+            .partners-table {
+                font-size: 14px;
+            }
+            .partners-table th,
+            .partners-table td {
+                padding: 10px 8px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <a href="/" class="back-link">← Retour à l'accueil</a>
+        
+        <div class="page-header">
+            <h1>📋 Divulgation d'Affiliation</h1>
+            <p class="subtitle">Dernière mise à jour: Décembre 2024</p>
+        </div>
+
+        <!-- Engagement -->
+        <div class="card">
+            <div class="card-header">
+                <span class="card-icon">💎</span>
+                <h2 class="card-title">Notre Engagement de Transparence</h2>
+            </div>
+            <p>
+                Chez <strong>TrouveUnCadeau.xyz</strong>, nous croyons en une transparence totale avec nos utilisateurs. 
+                Cette page explique comment nous générons des revenus tout en vous offrant un service gratuit et de qualité.
+            </p>
+            <div class="highlight-box">
+                <p>
+                    <strong>🎁 Notre service est 100% gratuit pour vous.</strong> Lorsque vous achetez un produit via nos liens, 
+                    nous recevons une petite commission de la part du détaillant. Cela n'affecte jamais le prix que vous payez.
+                </p>
+            </div>
+        </div>
+
+        <!-- Programmes Partenaires -->
+        <div class="card">
+            <div class="card-header">
+                <span class="card-icon">🤝</span>
+                <h2 class="card-title">Nos Programmes Partenaires</h2>
+            </div>
+            <p>Nous participons aux programmes d'affiliation suivants:</p>
+            <table class="partners-table">
+                <thead>
+                    <tr>
+                        <th>Partenaire</th>
+                        <th>Commission</th>
+                        <th>Cookie</th>
+                        <th>Description</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>Amazon Canada</strong></td>
+                        <td>1-10%</td>
+                        <td>24h</td>
+                        <td>Programme Amazon Associates</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Etsy</strong></td>
+                        <td>4%</td>
+                        <td>30 jours</td>
+                        <td>Produits artisanaux uniques</td>
+                    </tr>
+                    <tr>
+                        <td><strong>eBay</strong></td>
+                        <td>1-4%</td>
+                        <td>24h</td>
+                        <td>Marketplace diversifiée</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Indigo</strong></td>
+                        <td>5%</td>
+                        <td>7 jours</td>
+                        <td>Livres et cadeaux canadiens</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <!-- Politique Éditoriale -->
+        <div class="card">
+            <div class="card-header">
+                <span class="card-icon">📝</span>
+                <h2 class="card-title">Notre Politique Éditoriale</h2>
+            </div>
+            <p>Nos recommandations sont basées sur:</p>
+            <ul class="policy-list">
+                <li><strong>Indépendance</strong> — Nos recommandations IA ne sont pas influencées par les commissions</li>
+                <li><strong>Qualité</strong> — Nous analysons les avis, notes et pertinence des produits</li>
+                <li><strong>Transparence</strong> — Les liens affiliés sont clairement identifiés</li>
+                <li><strong>Pertinence</strong> — L'algorithme privilégie la correspondance avec vos critères</li>
+                <li><strong>Prix justes</strong> — Nous comparons les prix pour vous offrir les meilleures options</li>
+            </ul>
+        </div>
+
+        <!-- Conformité -->
+        <div class="card">
+            <div class="card-header">
+                <span class="card-icon">⚖️</span>
+                <h2 class="card-title">Conformité Réglementaire</h2>
+            </div>
+            <p>TrouveUnCadeau.xyz respecte:</p>
+            <ul class="policy-list">
+                <li><strong>Ad Standards Canada</strong> — Divulgation claire des relations commerciales</li>
+                <li><strong>CASL</strong> — Loi canadienne anti-pourriel pour les communications</li>
+                <li><strong>Competition Act</strong> — Transparence dans les pratiques commerciales</li>
+                <li><strong>FTC Guidelines</strong> — Standards internationaux de divulgation</li>
+            </ul>
+        </div>
+
+        <!-- Contact -->
+        <div class="card">
+            <div class="card-header">
+                <span class="card-icon">📬</span>
+                <h2 class="card-title">Contact</h2>
+            </div>
+            <p>Pour toute question concernant notre programme d'affiliation:</p>
+            <div class="contact-box">
+                <p><strong>Email:</strong> <a href="mailto:contact@trouveuncadeau.xyz">contact@trouveuncadeau.xyz</a></p>
+                <p><strong>Adresse:</strong> Saguenay-Lac-Saint-Jean, Québec, Canada</p>
+            </div>
+        </div>
+
+        <!-- Footer -->
+        <div class="footer">
+            <div class="footer-links">
+                <a href="/divulgation.html">📋 Divulgation</a>
+                <a href="/confidentialite.html">🔒 Confidentialité</a>
+                <a href="/conditions.html">📜 Conditions</a>
+                <a href="mailto:contact@trouveuncadeau.xyz">📬 Contact</a>
+            </div>
+            <p class="footer-copy">© 2024 TrouveUnCadeau.xyz | Saguenay-Lac-Saint-Jean, Québec, Canada</p>
+        </div>
+    </div>
+</body>
+</html>
