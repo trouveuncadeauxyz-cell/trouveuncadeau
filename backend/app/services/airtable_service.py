@@ -48,7 +48,7 @@ class AirtableService:
         """Search products with formula"""
         try:
             if not fields:
-                fields = ["Name", "ASIN", "Price", "Category", "Description"]
+                fields = ["Name", "ASIN", "Price", "Category", "Description, "Image""]
             
             formula = f'SEARCH("{query.lower()}", LOWER({{Name}}))'
             params = {"filterByFormula": formula}
